@@ -1,0 +1,235 @@
+<html>
+<head>
+
+<script type="text/javascript" src="jsPDF/js/jquery-1.10.2.js"></script>
+
+<!--
+
+    Sufficient js file to print PDF
+
+-->
+<script type="text/javascript" src="jsPDF/jspdf.js"></script>
+<script type="text/javascript" src="jsPDF/libs/sprintf.js"></script>
+<script type="text/javascript" src="jsPDF/libs/base64.js"></script>
+<script type="text/javascript" src="jsPDF/libs/Deflate/adler32cs.js"></script>
+<script type="text/javascript" src="jsPDF/dist/jspdf.debug.js"></script>
+<script type="text/javascript" src="jsPDF/jspdf.plugin.cell.js"></script>
+
+
+
+
+
+<!-- <script type="text/javascript" src="jsPDF/jspdf.plugin.standard_fonts_metrics.js"></script> 
+<script type="text/javascript" src="jsPDF/jspdf.plugin.split_text_to_size.js"></script>               
+<script type="text/javascript" src="jsPDF/jspdf.plugin.from_html.js"></script>
+ -->
+
+
+
+</head>
+
+<body>
+
+<button id="btnExport" onclick="fnExcelReport();"> EXPORT </button>
+<iframe id="txtArea1" style="display:none"></iframe>
+
+
+<a href="javascript:demoFromHTML()" style="font-size:18px;font-weight:bold;text-decoration:none;" class="button">PDF Download</a>
+
+
+
+<div id="datasource" >
+<h1>Table 1</h1>
+   <table border="1" id="headerTable">
+   <thead>
+   <tr>
+        <th style="white-space: nowrap;">S.No</th>
+        <th style="white-space: nowrap;">Date&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+        <th style="white-space: nowrap;">Delivery Boy</th>
+        <th style="white-space: nowrap;">Odometer</th>
+        <th style="white-space: nowrap;">Amount</th>
+        <th style="white-space: nowrap;">Notes</th>
+       
+   </tr>
+   </thead>
+  
+
+   <tbody>
+    <tr>
+        <td>1</td> <td>12-03-2015</td> <td>Ramesh</td> <td>100</td> <td>234.00</td> <td>Test data 6</td> 
+   </tr>
+    <tr>
+        <td>2</td> <td>12-03-2015</td> <td>Ramesh</td> <td>20</td> <td>456.00</td> <td>Test data 6</td> 
+   </tr>
+    <tr>
+        <td>3</td> <td>12-03-2015</td> <td>Ramesh</td> <td>200</td> <td>456.00</td> <td>Test data 6</td> 
+   </tr>
+    <tr>
+        <td>4</td> <td>12-03-2015</td> <td>Ramesh</td> <td>237</td> <td>456.00</td> <td>I want to convert some of my divs into PDF and I've tried jsPDF library but with no success.</td> 
+   </tr>
+    <tr>
+        <td>5</td> <td>12-03-2015</td> <td>Ramesh</td> <td>189</td> <td>456.00</td> <td>Test data 6</td> 
+   </tr>
+    <tr>
+        <td>6</td> <td>12-03-2015</td> <td>Ramesh</td> <td>236</td> <td>456.00</td> <td>Test data 6</td> 
+   </tr>
+    <tr>
+        <td>7</td> <td>12-03-2015</td> <td>Ramesh</td> <td>567</td> <td>120.00</td> <td>Test data 6</td> 
+   </tr>
+   </tbody>
+   </table>
+
+
+
+
+   <h1>Table 2</h1>
+   <table border="1">
+   <thead>
+   <tr>
+        <th>HEAD1</th><th>HEAD2</th><th>HEAD3</th><th>HEAD4</th><th>HEAD5</th><th>HEAD6</th><th>HEAD7</th>
+   </tr>
+   </thead>
+  
+
+   <tbody>
+    <tr>
+        <td>Test data 1</td> <td>Test data 2</td> <td>Test data 3</td> <td>Test data 4</td> <td>Test data 5</td> <td>Test data 6</td> <td>Test data 7</td>
+   </tr>
+    <tr>
+        <td>Test data 1</td> <td>Test data 2</td> <td>Test data 3</td> <td>Test data 4</td> <td>Test data 5</td> <td>Test data 6</td> <td>Test data 7</td>
+   </tr>
+    <tr>
+        <td>Test data 1</td> <td>Test data 2</td> <td>Test data 3</td> <td>Test data 4</td> <td>Test data 5</td> <td>Test data 6</td> <td>Test data 7</td>
+   </tr>
+    <tr>
+        <td>Test data 1</td> <td>Test data 2</td> <td>Test data 3</td> <td>Test data 4</td> <td>Test data 5</td> <td>Test data 6</td> <td>Test data 7</td>
+   </tr>
+    <tr>
+        <td>Test data 1</td> <td>Test data 2</td> <td>Test data 3</td> <td>Test data 4</td> <td>Test data 5</td> <td>Test data 6</td> <td>Test data 7</td>
+   </tr>
+    <tr>
+        <td>Test data 1</td> <td>Test data 2</td> <td>Test data 3</td> <td>Test data 4</td> <td>Test data 5</td> <td>Test data 6</td> <td>Test data 7</td>
+   </tr>
+    <tr>
+        <td>Test data 1</td> <td>Test data 2</td> <td>Test data 3</td> <td>Test data 4</td> <td>Test data 5</td> <td>Test data 6</td> <td>Test data 7</td>
+   </tr>
+   </tbody>
+   </table>
+
+
+   <h1>Table 3</h1>
+  <table border="1">
+   <thead>
+   <tr>
+        <th>HEAD1</th><th>HEAD2</th><th>HEAD3</th><th>HEAD4</th><th>HEAD5</th><th>HEAD6</th><th>HEAD7</th>
+   </tr>
+   </thead>
+  
+
+   <tbody>
+    <tr>
+        <td>Test data 1</td> <td>Test data 2</td> <td>Test data 3</td> <td>Test data 4</td> <td>Test data 5</td> <td>Test data 6</td> <td>Test data 7</td>
+   </tr>
+    <tr>
+        <td>Test data 1</td> <td>Test data 2</td> <td>Test data 3</td> <td>Test data 4</td> <td>Test data 5</td> <td>Test data 6</td> <td>Test data 7</td>
+   </tr>
+    <tr>
+        <td>Test data 1</td> <td>Test data 2</td> <td>Test data 3</td> <td>Test data 4</td> <td>Test data 5</td> <td>Test data 6</td> <td>Test data 7</td>
+   </tr>
+    <tr>
+        <td>Test data 1</td> <td>Test data 2</td> <td>Test data 3</td> <td>Test data 4</td> <td>Test data 5</td> <td>Test data 6</td> <td>Test data 7</td>
+   </tr>
+    <tr>
+        <td>Test data 1</td> <td>Test data 2</td> <td>Test data 3</td> <td>Test data 4</td> <td>Test data 5</td> <td>Test data 6</td> <td>Test data 7</td>
+   </tr>
+    <tr>
+        <td>Test data 1</td> <td>Test data 2</td> <td>Test data 3</td> <td>Test data 4</td> <td>Test data 5</td> <td>Test data 6</td> <td>Test data 7</td>
+   </tr>
+    <tr>
+        <td>Test data 1</td> <td>Test data 2</td> <td>Test data 3</td> <td>Test data 4</td> <td>Test data 5</td> <td>Test data 6</td> <td>Test data 7</td>
+   </tr>
+   </tbody>
+   </table>
+</div>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+        function demoFromHTML() {
+           // var doc = new jsPDF('landscape');
+            var doc = new jsPDF('p', 'pt', 'a4');
+            var source = $('#datasource').html();
+            var specialElementHandlers = {
+                '#bypassme': function (element, renderer) {
+                    return true;
+                }
+            };
+                   
+            margins = {
+                top: 25,
+                bottom: 25,
+                left: 40, 
+                width: 525
+            };
+            
+            doc.fromHTML(
+                    source // HTML string or DOM elem ref.
+                    , margins.left // x coord
+                    , margins.top // y coord
+                    , {
+                              'width': margins.width // max width of content on PDF
+                            , 'elementHandlers': specialElementHandlers
+                    },
+                    function (dispose) {
+                      // dispose: object with X, Y of the last line add to the PDF
+                      //          this allow the insertion of new lines after html
+                    doc.save('TestPDF.pdf');
+                  },
+                    margins
+              );
+}
+
+
+function fnExcelReport()
+{
+    var tab_text="<table border='2px'><tr bgcolor='#87AFC6'>";
+    var textRange; var j=0;
+    tab = document.getElementById('headerTable'); // id of table
+
+    for(j = 0 ; j < tab.rows.length ; j++) 
+    {     
+        tab_text=tab_text+tab.rows[j].innerHTML+"</tr>";
+        //tab_text=tab_text+"</tr>";
+    }
+
+    tab_text=tab_text+"</table>";
+    tab_text= tab_text.replace(/<A[^>]*>|<\/A>/g, "");//remove if u want links in your table
+    tab_text= tab_text.replace(/<img[^>]*>/gi,""); // remove if u want images in your table
+    tab_text= tab_text.replace(/<input[^>]*>|<\/input>/gi, ""); // reomves input params
+
+    var ua = window.navigator.userAgent;
+    var msie = ua.indexOf("MSIE "); 
+
+    if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./))      // If Internet Explorer
+    {
+        txtArea1.document.open("txt/html","replace");
+        txtArea1.document.write(tab_text);
+        txtArea1.document.close();
+        txtArea1.focus(); 
+        sa=txtArea1.document.execCommand("SaveAs",true,"Say Thanks to Sumit.xls");
+    }  
+    else                 //other browser not tested on IE 11
+        sa = window.open('data:application/vnd.ms-excel,' + encodeURIComponent(tab_text));  
+
+    return (sa);
+}
+
+</script>
+</body>
+</html>
